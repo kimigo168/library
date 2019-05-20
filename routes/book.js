@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const BookModel = require('../models/book')
+const BookModel = require('../models/books')
 
 // GET 首页显示全部书籍
 router.get('/', (req, res) => {
