@@ -8,16 +8,15 @@ const routes = require('./routes')
 // 静态文件目录
 app.use(express.static(path.join(__dirname, 'public')))
 
+app.set('view engine', 'html')
+// 配置bodyParser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
 // 配置模板引擎
 nunjucks.configure(path.join(__dirname, 'views'), {
   autoescape: true,
   express: app
 })
-
-app.set('view engine', 'html')
-// 配置bodyParser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
 
 routes(app)
 const server = app.listen(3000, function () {

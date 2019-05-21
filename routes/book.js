@@ -6,6 +6,7 @@ const BookModel = require('../models/books')
 router.get('/', (req, res) => {
   BookModel.getBooks()
     .then((books) => {
+      console.log('books', books)
       res.render('index', { books })
     })
 })
